@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Professional {
+  id                Int                 @id @default(autoincrement())
+  cpf               String
+  name              String
+  email             String
+  birthdate         DateTime
+  city              String
+  uf                String
+  observation       String
+  curriculum        String
+  salaryExpectation Float
+  active            Boolean             @default(true)
+  createdAt         DateTime            @default(now())
+  ProfessionalSkill ProfessionalSkill[]
+  vacancyId         Int
+  Vacancy           Vacancy             @relation(fields: [vacancyId], references: [id])
+}
+
+model Vacancy {
+  id                Int                 @id @default(autoincrement())
+  name              String
+  manager           String
+  minimumBudget     Float
+  maximumBudget     Float
+  timeExperience    String
+  observation       String
+  seniority         String
+  sectorId          Int
+  company           String              @default("")
+  sector            Sector              @relation(fields: [sectorId], references: [id])
+  active            Boolean             @default(true)
+  createdAt         DateTime            @default(now())
+  ProfessionalSkill ProfessionalSkill[]
+  Professional      Professional[]
+  Skills            Skills[]
+}
+
+model Skills {
+  id                Int                 @id @default(autoincrement())
+  name              String
+  type              Int
+  weight            Int
+  active            Boolean             @default(true)
+  createdAt         DateTime            @default(now())
+  ProfessionalSkill ProfessionalSkill[]
+  professionalId    Int?
+  vacancyId         Int
+  Vacancy           Vacancy             @relation(fields: [vacancyId], references: [id])
+}
+
+model Sector {
+  id        Int       @id @default(autoincrement())
+  name      String
+  createdAt DateTime  @default(now())
+  Vacancy   Vacancy[]
+}
+
+model Seniority {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model ProfessionalSkill {
+  id             Int          @id @default(autoincrement())
+  note           Int
+  professionalId Int
+  professional   Professional @relation(fields: [professionalId], references: [id])
+  skillId        Int
+  skill          Skills       @relation(fields: [skillId], references: [id])
+  vacancyId      Int
+  vacancy        Vacancy      @relation(fields: [vacancyId], references: [id])
+  active         Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+}
+
+model Users {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String   @default("")
+  company   String
+  password  String
+  salt      String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
