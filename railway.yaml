@@ -1,0 +1,6 @@
+version: 2
+commands:
+  - name: migrate
+    command: npx prisma migrate deploy
+  - name: generate
+    command: npx prisma generate
