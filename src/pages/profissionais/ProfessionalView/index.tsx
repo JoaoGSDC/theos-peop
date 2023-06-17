@@ -12,7 +12,7 @@ import {
   ViewField,
   ViewFieldObservation,
   ViewFieldsContainer,
-} from './styles';
+} from '../../../styles/professional-view.styles';
 import { dateToAge } from '../../../utils/dateToAge';
 import GraphicDonut from '../../../components/Graphics/GraphicDonut';
 import SkillRating from '../../../components/SkillRating';

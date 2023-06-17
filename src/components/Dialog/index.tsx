@@ -9,10 +9,23 @@ interface IProps {
   title: string;
   positiveButtonText: string;
   negativeButtonText: string;
+  edit?: boolean;
   onConfirm?: any;
+  children?: any;
+  type?: '' | 'medium';
 }
 
-function Dialog({ open, setOpen, title, positiveButtonText, negativeButtonText, onConfirm }: IProps) {
+function Dialog({
+  open,
+  setOpen,
+  title,
+  positiveButtonText,
+  negativeButtonText,
+  edit = false,
+  onConfirm,
+  children,
+  type = '',
+}: IProps) {
   const handleConfirm = () => {
     handleClose();
     onConfirm(true);
@@ -29,8 +42,17 @@ function Dialog({ open, setOpen, title, positiveButtonText, negativeButtonText, 
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        type={type}
       >
         <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
+        <button>delete</button>
+
+        {children ? (
+          <>
+            <div>{children}</div>
+          </>
+        ) : null}
+
         <DialogActions>
           <Button onClick={handleClose}>{negativeButtonText}</Button>
           <Button onClick={handleConfirm} autoFocus>

@@ -1,7 +1,13 @@
 import React from 'react';
 import SkillRating from '../../../components/SkillRating';
 import { TabContainer } from '../../../components/Tabs/styles';
-import { ViewContainer, FieldItemsContainer, ViewField, SkillRatingContainer, FooterButtonsContainer } from './styles';
+import {
+  ViewContainer,
+  FieldItemsContainer,
+  ViewField,
+  SkillRatingContainer,
+  FooterButtonsContainer,
+} from '../../../styles/professionals-registration.styles';
 import InputCPF from '../../../components/InputCPF';
 import { TextField } from '@mui/material';
 import { PrimaryButton, SecondaryButton } from '../../../styles/globals';

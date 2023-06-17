@@ -1,18 +1,20 @@
-# base image
-FROM node:16-alpine
+# Use the official Node.js 16 image.
+# https://hub.docker.com/_/node
+FROM node:16
 
 # Create and change to the app directory.
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
-# A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
-# Copying this first prevents re-running npm install on every code change.
+# A wildcard is used to ensure both package.json AND package-lock.json are copied.
+# Copying this separately prevents re-running npm install on every code change.
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy local code to the container image.
 COPY . .
 
-# Install production dependencies.
-# If you add a package-lock.json, speed your build by switching to 'npm ci'.
-RUN npm ci --only=production
-
-RUN npm run build
-
-CMD ["npm", "start"]
+# Run the web service on container startup.
+CMD [ "npm", "start" ]

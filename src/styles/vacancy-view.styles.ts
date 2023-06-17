@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from '../../../styles/pages.styles';
+import { Content } from './pages.styles';
 
 export const ViewContainer = styled(Content)`
   h2 {
@@ -49,29 +49,9 @@ export const ViewField = styled.div`
 export const ViewFieldObservation = styled(ViewField)`
   flex-direction: column;
 
-  h3 {
-    margin-bottom: 0px;
-    max-height: 80px;
-    overflow-y: auto;
-
-    &::-webkit-scrollbar {
-      height: 8px;
-      width: 8px; /* width of the entire scrollbar */
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparente; /* color of the tracking area */
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--text-secondary); /* color of the scroll thumb */
-      border-radius: 8px; /* roundness of the scroll thumb */
-    }
-  }
-
   h3:last-child {
-    margin-bottom: 16px;
     margin-left: 0px;
+    margin-top: 0px;
   }
 `;
 
@@ -85,16 +65,28 @@ export const GraphicsContainer = styled.div`
 export const ViewFieldsContainer = styled.div`
   display: flex;
   width: 100%;
-  margin-bottom: 16px;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export const FieldItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% + 1600px);
+  height: 100%;
 
   &:not(:last-child) {
     margin-right: 16px;
+  }
+`;
+
+export const FieldSkillsContainer = styled(FieldItemsContainer)`
+  margin-top: 8px;
+  flex-direction: row !important;
+  width: 100% !important;
+
+  div:first-child {
+    margin-right: 8px;
   }
 `;
 
@@ -117,4 +109,8 @@ export const ButtonsContainer = styled.div`
   button:not(:first-child) {
     margin-left: 8px;
   }
+`;
+
+export const Fields = styled.div`
+  display: flex;
 `;

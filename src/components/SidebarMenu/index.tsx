@@ -5,6 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import PeopleIcon from '@mui/icons-material/People';
 import InsightsIcon from '@mui/icons-material/Insights';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import { Container, Figure, MenuItemOption } from './styles';
 import { useToken } from '../../utils/token';
@@ -35,6 +36,13 @@ function SidebarMenu() {
               <MenuItemOption selectedMenuItem={router.pathname.includes('/analytics')}>
                 <InsightsIcon />
                 Analytics
+              </MenuItemOption>
+            </Link>
+
+            <Link href={`/agenda`}>
+              <MenuItemOption selectedMenuItem={router.pathname.includes('/agenda')}>
+                <CalendarMonthIcon />
+                Agenda
               </MenuItemOption>
             </Link>
 

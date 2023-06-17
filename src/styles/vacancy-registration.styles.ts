@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from '../../../styles/pages.styles';
+import { Content } from './pages.styles';
 
 export const ViewContainer = styled(Content)`
   flex-direction: column;

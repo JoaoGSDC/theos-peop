@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from '@mui/material';
 import useForm from '../../components/UseForm';
 import { PrimaryButton } from '../../styles/globals';
-import { Container, Figure, Form } from './styles';
+import { Container, Figure, Form } from '../../styles/login.styles';
 import { useToken } from '../../utils/token';
 import { AuthContext } from '../../context/AuthContext';
 import api from '../../services/api';

@@ -8,7 +8,7 @@ import useForm from '../../components/UseForm';
 import api from '../../services/api';
 import { PrimaryButton } from '../../styles/globals';
 import { PagesContainer } from '../../styles/pages.styles';
-import { AnalyticsCard, ViewField, FieldItemsContainer, GroupGraphics } from './styles';
+import { AnalyticsCard, ViewField, FieldItemsContainer, GroupGraphics } from '../../styles/analytics.styles';
 
 function Analytics() {
   const [loaded, setLoaded] = React.useState<boolean>(false);

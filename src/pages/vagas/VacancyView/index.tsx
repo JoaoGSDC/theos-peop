@@ -13,7 +13,7 @@ import {
   ViewField,
   ViewFieldObservation,
   ViewFieldsContainer,
-} from './styles';
+} from '../../../styles/vacancy-view.styles';
 import SkillRating from '../../../components/SkillRating';
 import { PrimaryButton } from '../../../styles/globals';
 import { formatNumberToBRL } from '../../../utils/formatNumberToBRL';

@@ -1,6 +1,12 @@
 import React from 'react';
 import SkillRating from '../../../components/SkillRating';
-import { ViewContainer, FieldItemsContainer, ViewField, SkillRatingContainer, FooterButtonsContainer } from './styles';
+import {
+  ViewContainer,
+  FieldItemsContainer,
+  ViewField,
+  SkillRatingContainer,
+  FooterButtonsContainer,
+} from '../../../styles/vacancy-registration.styles';
 import { TextField } from '@mui/material';
 import { PrimaryButton, SecondaryButton } from '../../../styles/globals';
 import Select from '../../../components/Select';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from '../../styles/pages.styles';
+import { Card } from './pages.styles';
 
 export const AnalyticsCard = styled(Card).attrs((props: { isFilters: boolean }) => props)`
   display: flex;

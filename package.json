@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "build:prod": "gcloud builds submit --tag gcr.io/theos-peop-app/theos-peop-app",
+    "start": "NODE_ENV=production next start",
+    "deploy": "gcloud app deploy",
     "lint": "next lint",
     "prisma:studio": "npx prisma studio",
     "docker:build": "docker build -t peop-db .",
@@ -38,6 +40,7 @@
     "next": "13.2.3",
     "react": "18.2.0",
     "react-apexcharts": "^1.4.0",
+    "react-calendar": "^4.2.1",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.6.1",
     "react-text-mask": "^5.5.0",
